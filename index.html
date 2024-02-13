@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centered Text</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Courier, monospace;
+        }
+        p {
+            margin: 0.2em 0;
+            font-weight: 100;
+
+        }
+        .centered-text {
+            text-align: left;
+            padding: 20px; /* Add padding for better visibility */
+        }
+    </style>
+</head>
+<body onload="showRandomPoem()">
+    <div id="poemDisplay" class="centered-text" onclick="showRandomPoem()">
+        <!-- Poem will be displayed here -->
+    </div>
+
+   
+      <!-- <p></p><p>she found a nail</p><p></p> -->
+
+    <script>
+        const poems = [
+        "<p>I love two women</p><p>mim and Jemima</p><p>one speaks softly in my ear</p><p>presses her hands</p><p>to cool my heart</p><br></br><p>the other glows</p><p>but is never warm</p><p>with a laugh that is not</p><p>her own</p><br></br><p>but mine that propels from my mouth</p><p>when she shows me a world</p><p>upside down</p>",
+        "<p>she awakes early</p><p>senses i am still asleep</p><p>and returns to slumber</p>",
+        "<p>her finger sutures her lips</p><p>thinking</p><p>the big wide world the wide world</p>",
+        "<p>a good friend</p><br></br><p>understands the need</p><p>to hide away</p><p>to seek shelter in warm corners</p><p>to turn my coat into soft spires</p>",
+        "<p>a big family but</p><p>but not through blood, thick water a</p><p>companion to the kind</p>",
+        "<p>owch!</p><br></br><br></br><br></br><br></br><br></br><p>she found a nail</p><p></p>"
+        ];
+        let lastRandomIndex = -1
+        function showRandomPoem() {
+            let randomIndex;
+            do {
+                // Generate a random index within the range of the poems array length
+                randomIndex = Math.floor(Math.random() * poems.length);
+            } while (randomIndex === lastRandomIndex); // Ensure it's not the same as the last index
+
+            lastRandomIndex = randomIndex;
+            document.getElementById("poemDisplay").innerHTML = poems[randomIndex];
+        }
+    </script>
+      
+    </body>
+    </html>
+</body>
+
+</html>
