@@ -22,15 +22,24 @@
             text-align: left;
             padding: 20px; /* Add padding for better visibility */
         }
+        #counter {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     </style>
 </head>
 <body onload="showRandomPoem()">
+    
     <div id="poemDisplay" class="centered-text" onclick="showRandomPoem()">
+
         <!-- Poem will be displayed here -->
     </div>
+    <div id="counter" class="centered-text"></div>
 
    
-      <!-- <p></p><p>she found a nail</p><p></p> -->
+      <!-- <p>&#60;3&#60;3&#60;3&#60;3&#60;3&#60;3</p> -->
 
     <script>
         const poems = [
@@ -39,7 +48,8 @@
         "<p>her finger sutures her lips</p><p>thinking</p><p>the big wide world the wide world</p>",
         "<p>a good friend</p><br></br><p>understands the need</p><p>to hide away</p><p>to seek shelter in warm corners</p><p>to turn my coat into soft spires</p>",
         "<p>a big family but</p><p>but not through blood, thick water a</p><p>companion to the kind</p>",
-        "<p>owch!</p><br></br><br></br><br></br><br></br><br></br><p>she found a nail</p><p></p>"
+        "<p>owch!</p><br></br><br></br><br></br><br></br><br></br><p>she found a nail</p><p></p>",
+        "<p>&#60;3&#60;3&#60;3&#60;3&#60;3&#60;3</p>"
         ];
         let lastRandomIndex = -1
         function showRandomPoem() {
@@ -51,6 +61,7 @@
 
             lastRandomIndex = randomIndex;
             document.getElementById("poemDisplay").innerHTML = poems[randomIndex];
+            document.getElementById("counter").innerHTML = `${randomIndex+1}/7`;
         }
     </script>
       
